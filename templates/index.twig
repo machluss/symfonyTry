@@ -5,8 +5,11 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Lecimy!</h1>
-    
+    <h1>Lecimy! - globals</h1>
+    _self : {{_self}} <br>
+    _charset : {{_charset}} <br>
+    'twig.yaml' : {{author}} <br>
+
     {% if (titles) %}
 
         {% for title in titles %}
