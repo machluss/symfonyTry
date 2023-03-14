@@ -3,17 +3,18 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MoviesController extends AbstractController
 {
-    #[Route('/movies/{name}', name: 'movies', defaults: ['name' => null], methods: ['GET', 'HEAD'])]
-    public function index($name): JsonResponse
+    public $moviestitle = ['Filmuś', 'Filmeczek', 'Filmusiątko'];
+
+    #[Route('/movies', name: 'movies')]
+    public function index(): Response
     {
-        return $this->json([
-            'message' => 'My movie@: '.$name.'!',
-            'path' => 'src/Controller/MoviesController.php',
+        return $this->render('index.twig', [
+            'titles' => $this->moviestitle,
         ]);
     }
 }

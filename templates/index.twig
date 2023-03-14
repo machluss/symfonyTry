@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Movies Page
+{% endblock %}
+
+{% block body %}
+    <h1>Lecimy!</h1>
+    
+    {% if (titles) %}
+
+        {% for title in titles %}
+
+            <p>{{ title }} </p>
+
+        {% endfor %}
+
+    {% else %}
+        <p>Nie ma filmusia ;/</p>
+    {% endif %}
+    
+{% endblock %}
